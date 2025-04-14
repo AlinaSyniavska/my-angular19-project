@@ -15,7 +15,7 @@ module.exports = {
         'gray-700': 'oklch(36.98% 0.014 302.71)',
         'gray-400': 'oklch(70.9% 0.015 304.04)',
 
-        'dark': '#454aa7',
+        'dark': 'red',
       }
     }
   },
