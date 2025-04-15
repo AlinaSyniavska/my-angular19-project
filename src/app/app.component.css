@@ -1,1 +1,15 @@
-.active { font-weight: bold; }
+/*@import '@nebular/theme/styles/theming';*/
+
+
+.active {
+  font-weight: bold;
+}
+
+.header {
+  background-color: oklch(70.9% 0.015 304.04);
+  color: white !important;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
