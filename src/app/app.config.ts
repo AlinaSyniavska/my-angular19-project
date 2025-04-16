@@ -11,16 +11,16 @@ function initializeIcons(iconLibraries: NbIconLibraries) {
   return () => {};
 }
 
-export function getAppProviders(): ApplicationConfig['providers'] {
-  const platformId = typeof window !== 'undefined' ? 'browser' : 'server';
-
-  const isBrowser = platformId === 'browser';
-
-  return [
+export const appConfig: ApplicationConfig = {
+  providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes, withViewTransitions(), withComponentInputBinding()),
+    provideRouter(
+      routes,
+      withViewTransitions(), // Додає анімацію переходів між сторінками
+      withComponentInputBinding() // Дозволяє передавати параметри маршруту як @Input() в компоненти
+    ),
     // provideClientHydration(withEventReplay()), // provideClientHydration() потрібен лише тоді, коли сервер рендерить HTML, і потім клієнт гідрує (SSR)
-    ...(isBrowser ? (NbThemeModule.forRoot({ name: 'default' }).providers as any) : []),
+    ...(NbThemeModule.forRoot({ name: 'default' }).providers as any),
     NbEvaIconsModule,
     {
       provide: APP_INITIALIZER,
@@ -28,9 +28,5 @@ export function getAppProviders(): ApplicationConfig['providers'] {
       deps: [NbIconLibraries],
       multi: true,
     },
-  ];
-}
-
-export const appConfig: ApplicationConfig = {
-  providers: getAppProviders(),
+  ]
 };
