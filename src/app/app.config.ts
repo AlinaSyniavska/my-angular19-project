@@ -22,12 +22,12 @@ export const appConfig: ApplicationConfig = {
     ),
     provideClientHydration(withEventReplay()),
     ...(NbThemeModule.forRoot({ name: 'default' }).providers as any),
-    NbEvaIconsModule,
+/*    NbEvaIconsModule,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeIcons,
       deps: [NbIconLibraries],
       multi: true,
-    },
+    },*/
   ]
 };

@@ -89,7 +89,6 @@
 </style>-->
 
 
-
 <!--    <nav>
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
       <a routerLink="/about" routerLinkActive="active">About</a>
@@ -102,14 +101,16 @@
 
 <nb-layout>
   <nb-layout-header class="header">
-    Awesome Company
-    <a href="#" (click)="toggle()">!!!!!!!!!!!<i class="nb-menu"></i></a>
+    <a href="#" (click)="toggle()">
+      <nb-icon icon="arrowhead-left" status="warning" [options]="{ animation: { type: 'zoom' } }"
+               class="big-icon"></nb-icon>
+    </a>
   </nb-layout-header>
-
 
   <nb-sidebar></nb-sidebar>
 
-  <nb-layout-column class="colored-column-basic">Hello World!</nb-layout-column>
+  <nb-layout-column class="">Hello World!
+  </nb-layout-column>
 
   <nb-layout-footer>Contact us</nb-layout-footer>
 </nb-layout>
