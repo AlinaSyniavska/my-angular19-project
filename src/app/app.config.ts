@@ -1,7 +1,7 @@
-import { APP_INITIALIZER, ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { NbIconLibraries, NbSidebarService, NbThemeModule } from '@nebular/theme';
+import { NbIconLibraries, NbThemeModule } from '@nebular/theme';
 
 import { routes } from './app.routes';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
