@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import {
   NbActionsModule,
@@ -12,13 +12,15 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 @Component({
   selector: 'app-root',
-  imports: [ RouterOutlet, RouterLinkActive, RouterLink, NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule, NbActionsModule, NbIconModule, NbEvaIconsModule, ],
+  imports: [ RouterOutlet, RouterLinkActive, RouterLink, NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule , NbActionsModule, NbIconModule, NbEvaIconsModule, ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true,
   providers: [ NbSidebarService ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
+
   constructor(private sidebarService: NbSidebarService) {
   }
 
