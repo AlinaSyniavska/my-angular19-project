@@ -1,9 +1,10 @@
 import { APP_INITIALIZER, ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
-import { NbIconLibraries, NbThemeModule } from '@nebular/theme';
+import { NbIconLibraries, NbMenuModule, NbThemeModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 import { routes } from './app.routes';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 function initializeIcons(iconLibraries: NbIconLibraries) {
   iconLibraries.registerSvgPack('eva', { }); // Або інші параметри за потребою
@@ -28,5 +29,7 @@ export const appConfig: ApplicationConfig = {
       deps: [NbIconLibraries],
       multi: true,
     },
+    ...(NbMenuModule.forRoot().providers as any),
+    provideAnimations(),
   ]
 };

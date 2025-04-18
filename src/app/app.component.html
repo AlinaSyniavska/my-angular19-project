@@ -89,16 +89,6 @@
 </style>-->
 
 
-<!--    <nav>
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-      <a routerLink="/about" routerLinkActive="active">About</a>
-      <a routerLink="/products" routerLinkActive="active">Products</a>
-      <a routerLink="/admin" routerLinkActive="active">Admin</a>
-    </nav>
-
-    <router-outlet></router-outlet>-->
-
-
 <nb-layout>
   <nb-layout-header class="header">
     <a href="#" (click)="toggle()">
@@ -107,15 +97,13 @@
     </a>
   </nb-layout-header>
 
-<!--  <nb-menu>
-    <nb-menu-item title="Dashboard" icon="home-outline" [routerLink]="['/']"></nb-menu-item>
-    <nb-menu-item title="Products" icon="cube-outline" [routerLink]="['/products']"></nb-menu-item>
-    <nb-menu-item title="Admin" icon="settings-2-outline" [routerLink]="['/admin']"></nb-menu-item>
-  </nb-menu>-->
+  <nb-sidebar>
+    <nb-menu [items]="items">
+    </nb-menu>
+  </nb-sidebar>
 
-  <nb-sidebar></nb-sidebar>
-
-  <nb-layout-column class="">Hello World!
+  <nb-layout-column class="">
+    <router-outlet></router-outlet>
   </nb-layout-column>
 
   <nb-layout-footer>Contact us</nb-layout-footer>
