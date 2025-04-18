@@ -90,14 +90,17 @@
 
 
 <nb-layout>
-  <nb-layout-header class="header">
-    <a href="#" (click)="toggle()">
-      <nb-icon icon="arrowhead-left" status="warning" [options]="{ animation: { type: 'zoom' } }"
-               class="big-icon"></nb-icon>
-    </a>
+  <nb-layout-header subheader class="header main-bg">
+    <div class="header-content">
+      <h1>My Application</h1>
+    </div>
   </nb-layout-header>
 
-  <nb-sidebar>
+  <nb-sidebar class="main-bg">
+    <a href="#" (click)="toggle()">
+      <nb-icon icon="arrowhead-left" status="primary" [options]="{ animation: { type: 'zoom' } }"
+               class="big-icon"></nb-icon>
+    </a>
     <nb-menu tag="menu" [items]="items" autoCollapse="true">
     </nb-menu>
   </nb-sidebar>
@@ -106,6 +109,6 @@
     <router-outlet></router-outlet>
   </nb-layout-column>
 
-  <nb-layout-footer>Contact us</nb-layout-footer>
+  <nb-layout-footer class="footer main-bg">Contact us</nb-layout-footer>
 </nb-layout>
 

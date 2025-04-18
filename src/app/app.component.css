@@ -1,8 +1,10 @@
 /*@import '@nebular/theme/styles/theming';*/
 
+.main-bg {
+  background-color: rgba(51, 102, 255, 0.08) !important;
+}
 
 .header {
-  background-color: oklch(70.9% 0.015 304.04);
   color: white !important;
   text-align: center;
   font-size: 24px;
@@ -13,3 +15,5 @@
   font-size: 32px;
 }
 
+.footer {
+}
