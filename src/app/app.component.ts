@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import {
   NbActionsModule,
   NbButtonModule, NbIconModule,
@@ -14,8 +14,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    RouterLinkActive,
-    RouterLink,
+    // RouterLinkActive, RouterLink,
     NbThemeModule,
     NbLayoutModule,
     NbButtonModule,
@@ -32,12 +31,12 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-
   items: NbMenuItem[] = [
     {
       title: 'Home',
       icon: 'home-outline',
       link: '/',
+      pathMatch: 'full',
     },
     {
       title: 'About',
@@ -56,11 +55,14 @@ export class AppComponent {
     },
   ];
 
-  constructor(private sidebarService: NbSidebarService) {
+  constructor(
+    private sidebarService: NbSidebarService,
+  ) {
   }
 
   toggle() {
     this.sidebarService.toggle(true);
     return false;
   }
+
 }
