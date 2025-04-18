@@ -29,7 +29,8 @@ export const appConfig: ApplicationConfig = {
       deps: [NbIconLibraries],
       multi: true,
     },
-    ...(NbMenuModule.forRoot().providers as any),
+    NbMenuModule.forRoot().providers,
+    NbThemeModule.forRoot().providers,
     provideAnimations(),
   ]
 };

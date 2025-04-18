@@ -1,14 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import {
   NbActionsModule,
   NbButtonModule, NbIconModule,
-  NbLayoutModule, NbMenuItem, NbMenuModule,
+  NbLayoutModule, NbMenuItem, NbMenuModule, NbMenuService,
   NbSidebarModule,
   NbSidebarService,
   NbThemeModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true,
-  providers: [ NbSidebarService ],
+  providers: [ NbSidebarService,  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
@@ -36,7 +37,8 @@ export class AppComponent {
       title: 'Home',
       icon: 'home-outline',
       link: '/',
-      pathMatch: 'full',
+      home: true,
+      pathMatch: 'full'
     },
     {
       title: 'About',
@@ -57,7 +59,37 @@ export class AppComponent {
 
   constructor(
     private sidebarService: NbSidebarService,
+    private menuService: NbMenuService,
+    private router: Router,
   ) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      // Знаходимо відповідний пункт меню на основі URL
+      const currentPath = event.url === '/' ? '/' : `/${event.url.split('/')[1]}`;
+
+      // Знаходимо індекс елемента, який треба активувати
+      const index = this.items.findIndex(item =>
+        (currentPath === '/' && item.link === '/') ||
+        (item.link === currentPath)
+      );
+
+      if (index !== -1) {
+        // Встановлюємо вибраний елемент
+        this.items.forEach((item, i) => {
+          // Очищаємо попередній активний стан
+          item.selected = i === index;
+        });
+      }
+    });
+
+    // Підписуємось на вибір елементу з меню
+    this.menuService.onItemClick()
+      .subscribe((event) => {
+        if (event.item.link) {
+          this.router.navigate([event.item.link]);
+        }
+      });
   }
 
   toggle() {
