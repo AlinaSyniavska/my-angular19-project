@@ -1,6 +1,8 @@
 /*@import '@nebular/theme/styles/theming';*/
 
-.main-bg {
+.main-bg,
+.main-bg > *,
+::ng-deep .main-bg nav {
   background-color: rgba(51, 102, 255, 0.08) !important;
 }
 
@@ -13,6 +15,10 @@
 
 .big-icon {
   font-size: 32px;
+}
+
+.sidebar {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .footer {
