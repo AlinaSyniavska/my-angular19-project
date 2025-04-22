@@ -13,8 +13,20 @@
   font-weight: bold;
 }
 
-.big-icon {
+.toggle-button {
+  position: absolute;
+  top: 0;
+  left: 5%;
+}
+
+.toggle-icon {
   font-size: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
+  margin-top: 20px;
 }
 
 .sidebar {

@@ -97,11 +97,11 @@
   </nb-layout-header>
 
   <nb-sidebar class="sidebar main-bg">
-    <a href="#" (click)="toggle()">
+      <a href="#" (click)="toggle()" class="toggle-button">
       <nb-icon icon="arrowhead-left" status="primary" [options]="{ animation: { type: 'zoom' } }"
-               class="big-icon"></nb-icon>
+               class="toggle-icon"></nb-icon>
     </a>
-    <nb-menu tag="menu" [items]="items" autoCollapse="true">
+    <nb-menu tag="menu" [items]="items" autoCollapse="true" class="menu">
     </nb-menu>
   </nb-sidebar>
 
