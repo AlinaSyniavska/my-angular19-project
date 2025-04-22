@@ -1,0 +1,30 @@
+.buttons {
+  display: flex;
+  background-color: #090810;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  flex-direction: column;
+}
+
+button {
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 5px 15px;
+  display: block;
+  margin: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.primary {
+  border: 2px solid #ffc728;
+  color: #ffd834;
+}
+.secondary {
+  border: 2px solid #E5DFCC;
+  color: #E5DFCC;
+}
+
+button:hover {
+  background-color: rgba(229, 223, 204, 0.3);}
