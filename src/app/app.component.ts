@@ -11,6 +11,8 @@ import {
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { filter } from 'rxjs';
 
+import { menuItems } from './constants';
+
 @Component({
   selector: 'app-root',
   imports: [
@@ -32,30 +34,7 @@ import { filter } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  items: NbMenuItem[] = [
-    {
-      title: 'Home',
-      icon: 'home-outline',
-      link: '/',
-      home: true,
-      pathMatch: 'full'
-    },
-    {
-      title: 'About',
-      icon: 'info-outline',
-      link: '/about',
-    },
-    {
-      title: 'Products',
-      icon: 'shopping-cart-outline',
-      link: '/products',
-    },
-    {
-      title: 'Admin',
-      icon: 'settings-2-outline',
-      link: '/admin',
-    },
-  ];
+  public readonly items = menuItems;
 
   constructor(
     private sidebarService: NbSidebarService,
