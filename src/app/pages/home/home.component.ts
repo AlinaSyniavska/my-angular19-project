@@ -6,8 +6,8 @@ import { ReactionPickerComponent } from '../../components/reaction-picker/reacti
   imports: [
     ReactionPickerComponent
   ],
-  templateUrl: './home.component.html',
   standalone: true,
+  templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {

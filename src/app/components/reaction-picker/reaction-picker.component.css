@@ -27,7 +27,7 @@ li {
 }
 
 li:hover {
-  background-color: rgba(229, 223, 204, 0.1);}
+  background-color: rgba(229, 223, 204, 0.3);}
 
 .selected {
   /*background-color: rgba(229, 223, 204, 0.1);*/

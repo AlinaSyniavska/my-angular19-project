@@ -3,8 +3,8 @@ import { Component, input, linkedSignal } from '@angular/core';
 @Component({
   selector: 'app-reaction-picker',
   imports: [],
-  templateUrl: './reaction-picker.component.html',
   standalone: true,
+  templateUrl: './reaction-picker.component.html',
   styleUrl: './reaction-picker.component.css'
 })
 export class ReactionPickerComponent {
