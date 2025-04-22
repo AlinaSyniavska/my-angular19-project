@@ -1,1 +1,10 @@
-<p>reaction-picker works!</p>
+<ul>
+  @for (reaction of reactions(); track $index) {
+    <li [class.selected]="isSelected(reaction)"
+        (click)="selectedReaction.set(reaction)">
+      {{ reaction }}
+    </li>
+  }
+</ul>
+
+<span>Selected <b>{{selectedReaction() || 'Nothing' }}</b></span>
