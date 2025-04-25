@@ -1,6 +1,6 @@
-import { APP_INITIALIZER, ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { APP_INITIALIZER, ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
-import { NbIconLibraries, NbMenuModule, NbThemeModule } from '@nebular/theme';
+import { NB_DIALOG_CONFIG, NbDialogModule, NbIconLibraries, NbMenuModule, NbThemeModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 import { routes } from './app.routes';
@@ -32,5 +32,17 @@ export const appConfig: ApplicationConfig = {
     NbMenuModule.forRoot().providers,
     NbThemeModule.forRoot().providers,
     provideAnimations(),
+    importProvidersFrom(NbDialogModule.forRoot()),
+    {
+      provide: NB_DIALOG_CONFIG,
+      useValue: {
+        hasBackdrop: true,
+        closeOnBackdropClick: true,
+        hasScroll: false,
+        autoFocus: true,
+        closeOnEsc: true,
+        // інші опції за замовчуванням...
+      }
+    }
   ]
 };

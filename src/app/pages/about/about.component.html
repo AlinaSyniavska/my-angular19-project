@@ -1,1 +1,13 @@
-<p>about works!</p>
+<nb-tabset (changeTab)="onTabChange($event)">
+  <nb-tab tabTitle="History">
+    <p>List of <strong>users</strong>.</p>
+  </nb-tab>
+  <nb-tab tabTitle="Team">
+    <p>List of <strong>orders</strong>.</p>
+  </nb-tab>
+  <nb-tab tabTitle="Projects">
+    <p>List of <strong>transactions</strong>.</p>
+  </nb-tab>
+</nb-tabset>
+
+
